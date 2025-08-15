@@ -1,56 +1,21 @@
-🌟 Dona Mary Shaju – Personal Portfolio
+# 🌟 Dona Mary Shaju – Portfolio
 
-A modern, responsive portfolio that showcases my education, skills, current learning, and ways to connect with me.
-Built for clarity, speed, and a clean aesthetic.
+A responsive personal portfolio website showcasing **education**, **skills**, and **projects**, with quick links to connect.  
+Built using **HTML**, **CSS**, **JavaScript**, and **Bootstrap** with smooth hover effects and mobile-friendly design.
 
-✨ Highlights
+---
 
-About Me – Concise introduction and professional summary.
+## 🚀 Features
+- **About Me** – Professional summary & introduction
+- **Education** – Academic background
+- **Skills** – Technical skills with icons
+- **Contact** – LinkedIn, GitHub, Email links
+- **Responsive Design** – Works on desktop, tablet, and mobile
 
-Education – Academic history in a clean, readable layout.
+---
 
-Skills (Single Row) – All technical skills and tools displayed in a single, responsive row with attractive styling.
+## 🛠️ Tech Stack
+- **Frontend:** HTML5, CSS3, JavaScript, Bootstrap
+- **Icons:** Font Awesome
+- **Fonts:** Google Fonts
 
-Contact – Direct links to LinkedIn, GitHub, and email.
-
-Responsive – Looks great on desktop, tablet, and mobile.
-
-Subtle Animations – Smooth hover and scroll effects for a polished feel.
-
-🛠️ Tech Stack
-
-HTML5 – Semantic structure
-
-CSS3 – Styling, layout, transitions
-
-JavaScript – Interactivity and animations
-
-Google Fonts – Clean, readable typography
-
-Font Awesome – Icons for skills and contact links
-
-📚 Learning & Collaboration
-
-Currently learning:
-
-Web Development (HTML, CSS, JavaScript)
-
-Front-end frameworks (Bootstrap, React)
-
-Back-end basics (Node.js, Express)
-
-Databases (MySQL, MongoDB)
-
-Open to collaborate on:
-
-Web applications
-
-Open-source contributions
-
-UI/UX-focused projects
-
-🧰 Skills & Tools (Single Row)
-
-Languages: HTML, CSS, JavaScript, Python, Java
-Tools: Git, GitHub, VS Code, MySQL Workbench, Postman, MongoDB Compass
-Frameworks/Libraries: Bootstrap, React (basic), Node.js (basic)
