@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dona Mary Shaju</title>
+  <meta name="description"
+    content="Portfolio of Dona Mary Shaju - MCA student specializing in product management, research, and full-stack development." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0C8FAD;
+      --primary-dark: #0a7a94;
+      --primary-light: #e6f5f8;
+      --secondary: #2c3e50;
+      --dark: #0b1320;
+      --gray: #6c757d;
+      --light-gray: #f8f9fc;
+      --white: #ffffff;
+      --success: #28a745;
+      --border: rgba(0, 0, 0, 0.1);
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 3rem;
+      max-width: 700px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-center .section-title::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-lg {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 1000;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar.scrolled {
+      padding: 15px 0;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .navbar-brand span {
+      color: var(--primary);
+    }
+
+    .navbar-menu {
+      display: flex;
+      list-style: none;
+    }
+
+    .navbar-item {
+      margin-left: 30px;
+    }
+
+    .navbar-link {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .navbar-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .navbar-link:hover::after,
+    .navbar-link.active::after {
+      width: 100%;
+    }
+
+    .navbar-link:hover,
+    .navbar-link.active {
+      color: var(--primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      min-height: 800px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(12, 143, 173, 0.1) 0%, rgba(255, 255, 255, 1) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .hero-info {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .hero-info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray);
+    }
+
+    .hero-info-item i {
+      color: var(--primary);
+    }
+
+    .hero-image {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      max-width: 600px;
+      z-index: 1;
+    }
+
+    /* About Section */
+    .about {
+      background: var(--light-gray);
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .about-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+      color: var(--gray);
+    }
+
+    .about-list {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .about-list li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .about-list i {
+      color: var(--primary);
+      margin-right: 10px;
+      margin-top: 3px;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .skill-item {
+      margin-bottom: 25px;
+    }
+
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .skill-name {
+      font-weight: 600;
+    }
+
+    .skill-percent {
+      color: var(--gray);
+    }
+
+    .skill-bar {
+      height: 8px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 4px;
+      transition: width 1s ease;
+    }
+
+    /* Projects Section */
+    .projects-filter {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      background: var(--white);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.1);
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--secondary);
+    }
+
+    .project-description {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tech-tag {
+      background: var(--light-gray);
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .project-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .project-link:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Experience Section */
+    .experience-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .experience-item {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+      border-left: 4px solid var(--primary);
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .experience-title {
+      font-size: 1.2rem;
+      color: var(--secondary);
+    }
+
+    .experience-date {
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    .experience-company {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .experience-description {
+      color: var(--gray);
+      margin-bottom: 15px;
+    }
+
+    .experience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .experience-tag {
+      background: var(--light-gray);
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--light-gray);
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-info-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-info-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: var(--secondary);
+    }
+
+    .contact-info-content p,
+    .contact-info-content a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-info-content a:hover {
+      color: var(--primary);
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(12, 143, 173, 0.2);
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--secondary);
+      color: var(--white);
+      padding: 50px 0 20px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .footer-col p {
+      margin-bottom: 15px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      text-decoration: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .animate-delay-100 {
+      animation-delay: 0.1s;
+    }
+
+    .animate-delay-200 {
+      animation-delay: 0.2s;
+    }
+
+    .animate-delay-300 {
+      animation-delay: 0.3s;
+    }
+
+    .animate-delay-400 {
+      animation-delay: 0.4s;
+    }
+
+    .animate-delay-500 {
+      animation-delay: 0.5s;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .hero-image {
+        width: 40%;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .about-container,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .contact-info {
+        order: 2;
+      }
+
+      .contact-form {
+        order: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .navbar-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-menu.active {
+        left: 0;
+      }
+
+      .navbar-item {
+        margin: 15px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 120px 0 80px;
+        height: auto;
+      }
+
+      .hero-image {
+        display: none;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        padding: 10px 20px;
+      }
+
+      .experience-header {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="navbar-brand"><span>Dona Mary Shaju</span></a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li class="navbar-item"><a href="#home" class="navbar-link active">Home</a></li>
+        <li class="navbar-item"><a href="#about" class="navbar-link">About</a></li>
+        <li class="navbar-item"><a href="#skills" class="navbar-link">Skills</a></li>
+        <li class="navbar-item"><a href="#projects" class="navbar-link">Projects</a></li>
+        <li class="navbar-item"><a href="#experience" class="navbar-link">Experience</a></li>
+        <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content animate animate-delay-100">
+        <h1 class="hero-title">Hi,  I'm Dona Mary Shaju</h1>
+        <p class="hero-subtitle">MCA student specializing in product management, research, and full-stack development with a passion for creating user-centric products.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-primary btn-lg">View Projects</a>
+          <a href="#contact" class="btn btn-outline btn-lg">Contact Me</a>
+        </div>
+        <div class="hero-info">
+          <div class="hero-info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Kottayam, India</span>
+          </div>
+          <div class="hero-info-item">
+            <i class="fas fa-envelope"></i>
+            <span>donamaryshaju@gmail.com</span>
+          </div>
+          
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Dona Shaju">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title animate">About Me</div>
+      <p class="section-subtitle animate animate-delay-100">Get to know me better</p>
+      
+      <div class="about-container">
+        <div class="about-image animate">
+          <img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"alt="About Dona">
+        </div>
+        <div class="about-content animate animate-delay-200">
+          <h3>Product-Oriented Developer with Research Expertise</h3>
+          <p>As an MCA student with a strong foundation in computer science and product thinking, I specialize in bridging the gap between technical implementation and user needs.</p>
+          <p>My approach combines analytical thinking with creative problem-solving to deliver solutions that are both technically sound and user-friendly.</p>
+          
+          <ul class="about-list">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Education:</strong> Master of Computer Applications (MCA) at Saintgits College of Engineering</span>
+            </li>
+            
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Strengths:</strong> Requirement analysis, market research, cross-functional collaboration</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><strong>Languages:</strong> English (Professional), Malayalam (Native)</span>
+            </li>
+          </ul>
+          
+          <a href="D:\Portfolio\resume.pdf" class="btn btn-primary" download>Download CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <div class="section-title text-center animate">My Skills</div>
+      <p class="section-subtitle text-center animate animate-delay-100">The technical and professional skills I bring to projects</p>
+      
+      <div class="skills-container">
+        <div class="animate">
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">Product Research</span>
+              <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">Requirement Analysis</span>
+              <span class="skill-percent">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">Stakeholder Communication</span>
+              <span class="skill-percent">80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="animate animate-delay-200">
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">Web Development</span>
+              <span class="skill-percent">75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">Database Management</span>
+              <span class="skill-percent">70%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 70%"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">Mobile Development</span>
+              <span class="skill-percent">65%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 65%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-title text-center animate">My Projects</div>
+      <p class="section-subtitle text-center animate animate-delay-100">A selection of my recent work</p>
+      
+      <div class="projects-filter animate animate-delay-200">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+  
+      </div>
+      
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card animate" data-category="web">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Airline Reservation System">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Airline Reservation System</h3>
+            <p class="project-description">Designed a booking & schedule management system with JSP and MySQL, focusing on user flow and database schema.</p>
+            <div class="project-tech">
+              <span class="tech-tag">JSP</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Bootstrap</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Live Demo</span>
+              </a>
+              <a href="#" class="project-link">
+                <i class="fab fa-github"></i>
+                <span>Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card animate animate-delay-100" data-category="web">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Billing System">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Billing System</h3>
+            <p class="project-description">Desktop application with Python and Tkinter featuring persistent storage, charts, and comprehensive documentation.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Tkinter</span>
+              <span class="tech-tag">SQLite</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Live Demo</span>
+              </a>
+              <a href="#" class="project-link">
+                <i class="fab fa-github"></i>
+                <span>Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card animate animate-delay-200" data-category="mobile">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Employee Management System">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Employee Management System</h3>
+            <p class="project-description">Android application integrated with Django backend to track performance, attendance, salary, and leave management.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Android</span>
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">MySQL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Live Demo</span>
+              </a>
+              <a href="#" class="project-link">
+                <i class="fab fa-github"></i>
+                <span>Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Project 4 -->
+        <div class="project-card animate animate-delay-100" data-category="web">
+          <div class="project-image">
+            <img src="https://i.ytimg.com/vi/AYyasgCruYU/hqdefault.jpg" alt="Student Progression System">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Student Progression System</h3>
+            <p class="project-description">Web-based system to track student academic progress throughout their course.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Html,CSS,Javascript</span>
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">MySQL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Live Demo</span>
+              </a>
+              <a href="#" class="project-link">
+                <i class="fab fa-github"></i>
+                <span>Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+    <div class="container">
+      <div class="section-title text-center animate">Experience & Education</div>
+      <p class="section-subtitle text-center animate animate-delay-100">My professional journey</p>
+      
+      <div class="experience-container">
+        <!-- Experience 1 -->
+        <div class="experience-item animate">
+          <div class="experience-header">
+            <h3 class="experience-title"> Intern</h3>
+            <span class="experience-date">May 2025 - June 2025</span>
+          </div>
+          <span class="experience-company">Jittech Company, Thiruvananthapuram</span>
+          <p class="experience-description">
+            Assisted in requirement analysis, feature design, and testing for active modules. Collaborated with developers to understand product workflows and release cycles.
+          </p>
+          <div class="experience-tags">
+            <span class="experience-tag">Product Research</span>
+            <span class="experience-tag">Requirement Analysis</span>
+            <span class="experience-tag">Agile Methodology</span>
+          </div>
+        </div>
+        
+        <!-- Education 1 -->
+        <div class="experience-item animate animate-delay-100">
+          <div class="experience-header">
+            <h3 class="experience-title">Master of Computer Applications (MCA)</h3>
+            <span class="experience-date">2024 - Present</span>
+          </div>
+          <span class="experience-company">Saintgits College of Engineering, Kottayam</span>
+          <p class="experience-description">
+            Advanced studies in computer applications with focus on software development, system analysis, and product management.
+          </p>
+          <div class="experience-tags">
+            <span class="experience-tag">Software Engineering</span>
+            <span class="experience-tag">Database Systems</span>
+            <span class="experience-tag">Web Technologies</span>
+          </div>
+        </div>
+        
+        <!-- Education 2 -->
+        <div class="experience-item animate animate-delay-200">
+          <div class="experience-header">
+            <h3 class="experience-title">Bachelor of Computer Applications (BCA)</h3>
+            <span class="experience-date">2021 - 2024</span>
+          </div>
+          <span class="experience-company">Bishop Vayalil Memorial Holy Cross College, Cherpunkal</span>
+          <p class="experience-description">
+            Comprehensive foundation in computer applications, programming, and information technology.
+          </p>
+          <div class="experience-tags">
+            <span class="experience-tag">Programming</span>
+            <span class="experience-tag">Data Structures</span>
+            <span class="experience-tag">Web Development</span>
+          </div>
+        </div>
+        <!-- Education 3 -->
+        <div class="experience-item animate animate-delay-100">
+          <div class="experience-header">
+            <h3 class="experience-title">CLASS 12 (CBSE)</h3>
+            <span class="experience-date">2020 - 2021</span>
+          </div>
+          <span class="experience-company">De Paul Public School,Nazareth Hill</span>
+          
+          <div class="experience-tags">
+            <span class="experience-tag">BIOMATHS</span>
+            
+          </div>
+        </div>
+        <!-- Education 4 -->
+        <div class="experience-item animate animate-delay-100">
+          <div class="experience-header">
+            <h3 class="experience-title">Class 10 (CBSE)</h3>
+            <span class="experience-date">2018 - 2019</span>
+          </div>
+          <span class="experience-company">De Paul Public School,Nazareth Hill</span>
+          
+          <div class="experience-tags">
+            <span class="experience-tag">GENERAL</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title text-center animate">Get In Touch</div>
+      <p class="section-subtitle text-center animate animate-delay-100">I'd love to hear about your project</p>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-info-item animate">
+            <div class="contact-info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-info-content">
+              <h3>Location</h3>
+              <p>Kottayam, Kerala, India</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item animate animate-delay-100">
+            <div class="contact-info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-info-content">
+              <h3>Email</h3>
+              <a href="mailto:donamaryshaju@gmail.com">donamaryshaju@gmail.com</a>
+            </div>
+          </div>
+          
+          <div class="contact-info-item animate animate-delay-200">
+            <div class="contact-info-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-info-content">
+              <h3>Phone</h3>
+              <a href="tel:+918078565305">+91 8078565305</a>
+            </div>
+          </div>
+          
+          <div class="contact-info-item animate animate-delay-300">
+            <div class="contact-info-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </div>
+            <div class="contact-info-content">
+              <h3>LinkedIn</h3>
+              <a href="https://linkedin.com/in/dona-mary-shaju-b0b9ba250" target="_blank">linkedin.com/in/dona-mary-shaju</a>
+            </div>
+            </div>
+             <div class="contact-info-item animate animate-delay-300">
+            <div class="contact-info-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <div class="contact-info-content">
+              <h3>Github</h3>
+              <a href="https://github.com/donamaryshaju" target="_blank">github.com/donamaryshaju</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form animate">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>Dona Mary Shaju</h3>
+          <p>MCA student specializing in product management, research, and full-stack development with a passion for creating user-centric products.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="h#" class="social-link"><i class="fab fa-github"></i></a>
+           
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Contact Info</h3>
+          <ul class="footer-links">
+            <li><a href="mailto:donamaryshaju@gmail.com">donamaryshaju@gmail.com</a></li>
+            <li><a href="tel:+918078565305">+91 8078565305</a></li>
+            <li>Kottayam, Kerala, India</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Dona Mary Shaju. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navbarMenu = document.getElementById('navbar-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navbarMenu.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navbarMenu.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.navbar-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navbarMenu.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.navbar-link');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.scrollY >= sectionTop - 300) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+    
+    // Back to top button
+    const backToTopBtn = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Project filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        const filter = btn.getAttribute('data-filter');
+        
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Here you would typically send the form data to a server
+      // For demo purposes, we'll just log it and show an alert
+      console.log({ name, email, subject, message });
+      
+      alert('Thank you for your message! I will get back to you soon.');
+      contactForm.reset();
+    });
+    
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Animate elements on scroll
+    const animateElements = () => {
+      const elements = document.querySelectorAll('.animate');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          element.style.animationPlayState = 'running';
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', animateElements);
+    window.addEventListener('load', animateElements);
+    
+    // Initialize skill bars animation
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    const animateSkillBars = () => {
+      skillBars.forEach(bar => {
+        const width = bar.parentElement.previousElementSibling.querySelector('.skill-percent').textContent;
+        bar.style.width = width;
+      });
+    };
+    
+    // Only animate skill bars when they come into view
+    const skillSection = document.getElementById('skills');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateSkillBars();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    observer.observe(skillSection);
+  </script>
+</body>
+
+</html>
